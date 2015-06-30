@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE window SYSTEM "chrome://thundermoderate/locale/thundermoderate.dtd">
+
+<overlay id="sample"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  
+  <script type="application/javascript" src="chrome://thundermoderate/content/messengerOverlay.js" />
+  
+  <toolbarpalette id="header-view-toolbar">
+    
+      <toolbarseparator id="thundermoderate-toolbar-separator" />
+    
+      <toolbarbutton label="&thundermoderate.moderate;"
+		     id="thundermoderate-toolbar-moderate" />
+      
+      <toolbarbutton label="&thundermoderate.loading;"
+		     id="thundermoderate-toolbar-menu"
+		     type="menu-button">
+	<menupopup>
+	  <menuitem label="&thundermoderate.ignore;"
+		    oncommand="" />
+	  <menuitem label="&thundermoderate.deny;"
+		    oncommand="" />
+	  <menuitem label="&thundermoderate.publish;"
+		    oncommand="" />
+	  <menuitem label="&thundermoderate.transmit;"
+		    oncommand="" />
+	</menupopup>
+      </toolbarbutton>
+
+  </toolbarpalette>
+
+</overlay>
+
+
