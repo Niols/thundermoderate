@@ -4,6 +4,9 @@ ThunderModerate
 **ThunderModerate** is a thunderbird extension intended to ease moderation
 tasks at the ENS.
 
+This version is inspired by the one that `pintoch` wrote in 2013, but has been
+almost fully rewritten.
+
 
 Installation
 ------------
@@ -27,5 +30,6 @@ TODO
 - [x] Allow moderation with these buttons.
 - [x] Add preference window for token managment.
 - [ ] Handle conflict with CSRF authentication when connected.
-- [ ] Handle dtd text in js scripts.
+- [x] Handle properties text in js scripts.
 - [ ] Replace mod buttongs by 'cancel' button that does what it's supposed to do.
+- [x] English support

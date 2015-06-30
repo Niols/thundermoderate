@@ -2,22 +2,12 @@
 
 <!ENTITY thundermoderate.moderate "Modérer :">
 
-<!ENTITY thundermoderate.loading "chargement…">
+<!ENTITY thundermoderate.loading "Chargement…">
 
 <!ENTITY thundermoderate.ignore "Ignorer">
-<!ENTITY thundermoderate.ignored "Ignoré">
-
 <!ENTITY thundermoderate.deny "Refuser">
-<!ENTITY thundermoderate.denied "Refusé">
-
 <!ENTITY thundermoderate.publish "Publier">
-<!ENTITY thundermoderate.published "Publié">
-
 <!ENTITY thundermoderate.transmit "Transmettre">
-<!ENTITY thundermoderate.transmitted "Transmis">
-
-
-
 
 <!ENTITY thundermoderate.settings.title "Paramètres de ThunderModerate">
 

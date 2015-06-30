@@ -3,11 +3,10 @@
 // Dependencies:
 // - chrome://thundermoderate/content/WebmodoAPI.js
 
-function mylog( msg )
+function T_( text )
 {
-    var Application = Components.classes["@mozilla.org/steel/application;1"]
-        .getService(Components.interfaces.steelIApplication);
-    Application.console.log( 'thundermoderate: ' + msg );
+    var strbundle = document.getElementById( 'strings' );
+    return strbundle.getString( text );
 }
 
 function status2text( status )
@@ -19,10 +18,10 @@ function status2text( status )
     case 'publié':   text = 'published';    break;
     case 'refusé':   text = 'denied';       break;
     case null:       text = 'notmoderated'; break;
-    default:         text = 'error.'+status;
+    default:         text = 'error';
     }
     
-    return '&thundermoderate.'+text+';';
+    return T_(text);
 }
 
 var MessengerOverlay = {
@@ -77,8 +76,8 @@ var MessengerOverlay = {
         {
 	    cookie = matches[1];
 
-	    tm_moderate.label = '&thundermoderate.moderate;';
-	    tm_menu.label = '&thundermoderate.loading;';
+	    tm_moderate.label = T_('moderate');
+	    tm_menu.label = T_('loading');
 
 	    tm_separator.hidden = false;
 	    tm_moderate.hidden = false;

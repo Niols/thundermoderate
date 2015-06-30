@@ -14,6 +14,11 @@
   <script type="application/x-javascript"
           src="chrome://thundermoderate/content/MessengerOverlay.js" />
   
+  <stringbundleset id="stringbundleset"
+		   hidden="true">
+    <stringbundle id="strings" src="chrome://thundermoderate/locale/thundermoderate.properties" />
+  </stringbundleset>
+
   <toolbarpalette id="header-view-toolbar">
     
       <toolbarseparator id="thundermoderate-toolbar-separator" />
