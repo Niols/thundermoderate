@@ -1,11 +1,18 @@
 <?xml version="1.0"?>
 
-<!DOCTYPE window SYSTEM "chrome://thundermoderate/locale/thundermoderate.dtd">
+<!DOCTYPE overlay SYSTEM "chrome://thundermoderate/locale/thundermoderate.dtd">
 
 <overlay id="sample"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   
-  <script type="application/javascript" src="chrome://thundermoderate/content/messengerOverlay.js" />
+  <script type="application/x-javascript"
+          src="chrome://global/content/nsUserSettings.js"/>
+
+  <script type="application/x-javascript"
+          src="chrome://thundermoderate/content/WebmodoAPI.js" />
+
+  <script type="application/x-javascript"
+          src="chrome://thundermoderate/content/MessengerOverlay.js" />
   
   <toolbarpalette id="header-view-toolbar">
     
@@ -18,14 +25,19 @@
 		     id="thundermoderate-toolbar-menu"
 		     type="menu-button">
 	<menupopup>
+
 	  <menuitem label="&thundermoderate.ignore;"
-		    oncommand="" />
+		    oncommand="MessengerOverlay.ignore();" />
+
 	  <menuitem label="&thundermoderate.deny;"
-		    oncommand="" />
+		    oncommand="MessengerOverlay.deny();" />
+
 	  <menuitem label="&thundermoderate.publish;"
-		    oncommand="" />
+		    oncommand="MessengerOverlay.publish();" />
+
 	  <menuitem label="&thundermoderate.transmit;"
-		    oncommand="" />
+		    oncommand="MessengerOverlay.transmit();" />
+
 	</menupopup>
       </toolbarbutton>
 

@@ -15,3 +15,14 @@
 
 <!ENTITY thundermoderate.transmit "Transmettre">
 <!ENTITY thundermoderate.transmitted "Transmis">
+
+
+
+
+<!ENTITY thundermoderate.settings.title "Paramètres de ThunderModerate">
+
+<!ENTITY thundermoderate.settings.presentation.title "Présentation">
+<!ENTITY thundermoderate.settings.presentation "ThunderModerate est une super appli !">
+
+<!ENTITY thundermoderate.settings.token "Token">
+<!ENTITY thundermoderate.settings.token.explanation "L'application a besoin de votre jeton d'API pour fonctionner.">

@@ -3,24 +3,26 @@
 <RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 
-    <Description about="urn:mozilla:install-manifest">
-        <em:id>thundermoderation@niols.net</em:id>
-        <em:description>Interface entre Thunderbird et Webmodo pour la modération à l'ENS.</em:description>
-        <em:version>1.0</em:version>
-        <em:type>2</em:type>
-        <em:unpack>true</em:unpack>
+  <Description about="urn:mozilla:install-manifest">
+    <em:id>thundermoderation@niols.net</em:id>
+    <em:description>Interface between Thunderbird and Webmodo for e-mail moderation at the ENS.</em:description>
+    <em:version>1.0</em:version>
+    <em:type>2</em:type>
+    <em:unpack>true</em:unpack>
 
-        <em:targetApplication>
-            <Description>
-                <em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
-                <em:minVersion>1.5</em:minVersion>
-                <em:maxVersion>10.0.*</em:maxVersion>
-            </Description>
-        </em:targetApplication>
+    <em:targetApplication>
+      <Description>
+        <em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
+        <em:minVersion>31.6.0</em:minVersion>
+        <em:maxVersion>31.6.*</em:maxVersion>
+      </Description>
+    </em:targetApplication>
 
-        <em:name>ThunderModerate</em:name>
-        <em:creator>Niols</em:creator>
+    <em:name>ThunderModerate</em:name>
+    <em:creator>Niols</em:creator>
 
-    </Description>
+    <em:optionsURL>chrome://thundermoderate/content/Settings.xul</em:optionsURL>
+
+  </Description>
 </RDF>
-                
+

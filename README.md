@@ -19,11 +19,13 @@ the extension:
 4. You can then clean everything with `make clean`.
 
 
-TODO list:
-----------
+TODO
+----
 
 - [x] Display moderate buttons on messages to moderate.
 - [x] Show the actual status of the mail (by asking to webmodo).
-- [ ] Allow moderation with these buttons.
-- [ ] Add preference window for token managment.
-
+- [x] Allow moderation with these buttons.
+- [x] Add preference window for token managment.
+- [ ] Handle conflict with CSRF authentication when connected.
+- [ ] Handle dtd text in js scripts.
+- [ ] Replace mod buttongs by 'cancel' button that does what it's supposed to do.
