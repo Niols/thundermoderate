@@ -3,6 +3,34 @@
 // Dependencies:
 // - chrome://global/content/nsUserSettings.js
 
+function status_thundermoderate_to_webmodo( status )
+{
+    switch( status )
+    {
+    case 'transmitted':  return 'transmis';
+    case 'ignored':      return 'ignoré';
+    case 'published':    return 'publié';
+    case 'denied':       return 'refusé';
+    case 'notmoderated': return null;
+    default:             return false;
+    }
+}
+
+function status_webmodo_to_thundermoderate( status )
+{
+    switch( status )
+    {
+    case 'transmis': return 'transmitted';
+    case 'ignoré':   return 'ignored';
+    case 'publié':   return 'published';
+    case 'refusé':   return 'denied';
+    case null:       return 'notmoderated';
+    default:         return 'error';
+    }
+}
+
+
+
 var WebmodoAPI = {
     
     getToken: function()
@@ -37,7 +65,7 @@ var WebmodoAPI = {
 		callback ( JSON.parse ( req.responseText ) );
 	}
 	
-	req.send( body );
+	req.send( JSON.stringify ( body ) );
     },
 
     getMailStatus: function( cookie , callback )
@@ -45,14 +73,14 @@ var WebmodoAPI = {
 	WebmodoAPI.sendRequest( 'GET',
 				'mails/'+cookie+'?format=json',
 				null,
-				function (mail) { callback ( mail.status ); } );
+				function (mail) { callback ( status_webmodo_to_thundermoderate ( mail.status ) ); } );
     },
 
     setMailStatus: function( cookie , status , callback )
     {
 	WebmodoAPI.sendRequest( 'PATCH',
 				'mails/'+cookie+'?format=json',
-				'{"status": "'+status+'"}',
+				{'status': status_thundermoderate_to_webmodo ( status )},
 				callback );
     }
 

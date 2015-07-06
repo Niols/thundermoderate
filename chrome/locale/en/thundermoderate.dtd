@@ -1,13 +1,12 @@
 <!ENTITY thundermoderate "ThunderModerate">
 
-<!ENTITY thundermoderate.moderate "Moderate:">
-
 <!ENTITY thundermoderate.loading "Loading…">
 
 <!ENTITY thundermoderate.ignore "Ignore">
 <!ENTITY thundermoderate.deny "Deny">
 <!ENTITY thundermoderate.publish "Publish">
 <!ENTITY thundermoderate.transmit "Transmit">
+<!ENTITY thundermoderate.cancel "Cancel">
 
 <!ENTITY thundermoderate.settings.title "Preferences for ThunderModerate">
 
@@ -15,4 +14,4 @@
 <!ENTITY thundermoderate.settings.presentation "ThunderModerate is a great add-on!">
 
 <!ENTITY thundermoderate.settings.token "Token">
-<!ENTITY thundermoderate.settings.token.explanation "This add-on needs your Webmodo AIP token.">
+<!ENTITY thundermoderate.settings.token.explanation "This add-on needs your Webmodo API token.">

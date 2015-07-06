@@ -6,7 +6,7 @@
   <Description about="urn:mozilla:install-manifest">
     <em:id>thundermoderation@niols.net</em:id>
     <em:description>Interface between Thunderbird and Webmodo for e-mail moderation at the ENS.</em:description>
-    <em:version>1.0</em:version>
+    <em:version>1.1</em:version>
     <em:type>2</em:type>
     <em:unpack>true</em:unpack>
 

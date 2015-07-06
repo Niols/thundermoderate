@@ -1,18 +1,17 @@
 <!ENTITY thundermoderate "ThunderModerate">
 
-<!ENTITY thundermoderate.moderate "Modérer :">
-
 <!ENTITY thundermoderate.loading "Chargement…">
 
 <!ENTITY thundermoderate.ignore "Ignorer">
 <!ENTITY thundermoderate.deny "Refuser">
 <!ENTITY thundermoderate.publish "Publier">
 <!ENTITY thundermoderate.transmit "Transmettre">
+<!ENTITY thundermoderate.cancel "Annuler">
 
 <!ENTITY thundermoderate.settings.title "Paramètres de ThunderModerate">
 
 <!ENTITY thundermoderate.settings.presentation.title "Présentation">
 <!ENTITY thundermoderate.settings.presentation "ThunderModerate est une super appli !">
 
-<!ENTITY thundermoderate.settings.token "Token">
+<!ENTITY thundermoderate.settings.token "Jeton d'API">
 <!ENTITY thundermoderate.settings.token.explanation "L'application a besoin de votre jeton d'API pour fonctionner.">

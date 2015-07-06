@@ -9,21 +9,6 @@ function T_( text )
     return strbundle.getString( text );
 }
 
-function status2text( status )
-{
-    switch( status )
-    {
-    case 'transmis': text = 'transmitted';  break;
-    case 'ignoré':   text = 'ignored';      break;
-    case 'publié':   text = 'published';    break;
-    case 'refusé':   text = 'denied';       break;
-    case null:       text = 'notmoderated'; break;
-    default:         text = 'error';
-    }
-    
-    return T_(text);
-}
-
 var MessengerOverlay = {
     
     cookie : false,
@@ -54,11 +39,14 @@ var MessengerOverlay = {
         if(!msg)
             return;
 
-        var tm_separator = document.getElementById('thundermoderate-toolbar-separator');
-        var tm_moderate  = document.getElementById('thundermoderate-toolbar-moderate');
-        var tm_menu      = document.getElementById('thundermoderate-toolbar-menu');
+        var tm_menu     = document.getElementById('thundermoderate-toolbar-menu');
+	var tm_ignore   = document.getElementById('thundermoderate-toolbar-ignore');
+	var tm_deny     = document.getElementById('thundermoderate-toolbar-deny');
+	var tm_publish  = document.getElementById('thundermoderate-toolbar-publish');
+	var tm_transmit = document.getElementById('thundermoderate-toolbar-transmit');
+	var tm_cancel   = document.getElementById('thundermoderate-toolbar-cancel');
 
-        if( (!tm_separator) || (!tm_moderate) || (!tm_menu) )
+        if( (!tm_menu) || (!tm_ignore) || (!tm_deny) || (!tm_publish) || (!tm_transmit) || (!tm_cancel) )
             return;
 
         var subject = msg.mime2DecodedSubject;
@@ -67,27 +55,54 @@ var MessengerOverlay = {
 	
         if(!matches)
         {
-	    tm_separator.hidden = true;
-	    tm_moderate.hidden = true;
 	    tm_menu.hidden = true;
+	    tm_menu.type = '';
+	    tm_ignore.hidden = true;
+	    tm_deny.hidden = true;
+	    tm_publish.hidden = true;
+	    tm_transmit.hidden = true;
+	    tm_cancel.hidden = true;
+
             MessengerOverlay.cookie = false;
         }
         else
         {
 	    cookie = matches[1];
 
-	    tm_moderate.label = T_('moderate');
 	    tm_menu.label = T_('loading');
-
-	    tm_separator.hidden = false;
-	    tm_moderate.hidden = false;
+	    tm_menu.type = '';
+	    tm_ignore.hidden = true;
+	    tm_deny.hidden = true;
+	    tm_publish.hidden = true;
+	    tm_transmit.hidden = true;
+	    tm_cancel.hidden = true;
 	    tm_menu.hidden = false;
 
             MessengerOverlay.cookie = cookie;
 
 	    WebmodoAPI.getMailStatus( cookie,
 				      function (status) {
-					  tm_menu.label = status2text( status );
+					  tm_menu.label = T_(status);
+					  if( status != 'error' )
+					  {
+					      if (status == 'notmoderated')
+					      {
+						  tm_ignore.hidden = false;
+						  tm_deny.hidden = false;
+						  tm_publish.hidden = false;
+						  tm_transmit.hidden = false;
+						  tm_cancel.hidden = true;
+					      }
+					      else
+					      {
+						  tm_ignore.hidden = true;
+						  tm_deny.hidden = true;
+						  tm_publish.hidden = true;
+						  tm_transmit.hidden = true;
+						  tm_cancel.hidden = false;
+					      }
+					      tm_menu.type = 'menu-button';
+					  }
 				      } );
         }
     },
@@ -102,22 +117,27 @@ var MessengerOverlay = {
 
     ignore: function()
     {
-	MessengerOverlay.set_status( 'ignoré' );
+	MessengerOverlay.set_status( 'ignored' );
     },
 
     deny: function()
     {
-	MessengerOverlay.set_status( 'refusé' );
+	MessengerOverlay.set_status( 'denied' );
     },
 
     publish: function()
     {
-	MessengerOverlay.set_status( 'publié' );
+	MessengerOverlay.set_status( 'published' );
     },
 
     transmit: function()
     {
-	MessengerOverlay.set_status( 'transmis' );
+	MessengerOverlay.set_status( 'transmitted' );
+    },
+
+    cancel: function()
+    {
+	MessengerOverlay.set_status( 'notmoderated' );
     }
 
 };

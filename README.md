@@ -31,5 +31,5 @@ TODO
 - [x] Add preference window for token managment.
 - [ ] Handle conflict with CSRF authentication when connected.
 - [x] Handle properties text in js scripts.
-- [ ] Replace mod buttongs by 'cancel' button that does what it's supposed to do.
+- [x] Replace mod buttongs by 'cancel' button that does what it's supposed to do.
 - [x] English support
