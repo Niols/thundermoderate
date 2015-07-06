@@ -1,25 +1,7 @@
 ThunderModerate
 ===============
 
-**ThunderModerate** is a thunderbird extension intended to ease moderation
-tasks at the ENS.
-
-This version is inspired by the one that `pintoch` wrote in 2013, but has been
-almost fully rewritten.
-
-
-Installation
-------------
-
-1. Make sure you have the `zip` command available.
-2. Then simply do: `make`.
-3. This will create a `thundermoderate.xpi` file allowing you to install
-the extension:
-  1. In the menu, go to “Add-ons”.
-  2. Press the “Tools” button and choose “Install Add-on from file...”
-  3. Find the `thundermoderate.xpi` file.
-  4. Install the extension and restart thunderbird.
-4. You can then clean everything with `make clean`.
+Please see http://niols.github.io/thundermoderate/.
 
 
 TODO
