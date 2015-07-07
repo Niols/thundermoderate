@@ -22,6 +22,7 @@
 
     <button label="&thundermoderate.loading;"
 	    id="thundermoderate-toolbar-menu"
+	    tooltiptext="Ceci est du caca"
 	    hidden="true"
 	    oncommand="MessengerOverlay.update()">
 

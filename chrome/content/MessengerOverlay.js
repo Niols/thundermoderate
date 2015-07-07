@@ -86,7 +86,7 @@ var MessengerOverlay = {
 		{
 		    if (status == 'notmoderated')
 		    {
-			tm_menu.description = '';
+			tm_menu.tooltiptext = '';
 			tm_ignore.hidden = false;
 			tm_deny.hidden = false;
 			tm_publish.hidden = false;
@@ -97,7 +97,7 @@ var MessengerOverlay = {
 		    {
 			if( nsPreferences.getBoolPref('thundermoderate.moderator.showinbutton', false) )
 			    tm_menu.label += ' (' + moderator + ')';
-			tm_menu.description = T_('moderatedby') + moderator;
+			tm_menu.tooltipText = T_('moderatedby') + ' ' + moderator;
 			tm_ignore.hidden = true;
 			tm_deny.hidden = true;
 			tm_publish.hidden = true;
