@@ -68,12 +68,20 @@ var WebmodoAPI = {
 	req.send( JSON.stringify ( body ) );
     },
 
-    getMailStatus: function( cookie , callback )
+    getMail: function( cookie , callback )
     {
 	WebmodoAPI.sendRequest( 'GET',
 				'mails/'+cookie+'?format=json',
 				null,
-				function (mail) { callback ( status_webmodo_to_thundermoderate ( mail.status ) ); } );
+				callback );
+    },
+
+    getMailStatus: function( cookie , callback )
+    {
+	WebmodoAPI.getMail( cookie ,
+			    function (mail) {
+				callback ( status_webmodo_to_thundermoderate ( mail.status ) , mail['moderated-by'] ); // must replace by mail.moderated-by but it's not working
+			    } );
     },
 
     setMailStatus: function( cookie , status , callback )

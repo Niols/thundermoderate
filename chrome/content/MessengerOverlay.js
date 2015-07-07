@@ -80,33 +80,36 @@ var MessengerOverlay = {
 
             MessengerOverlay.cookie = cookie;
 
-	    WebmodoAPI.getMailStatus( cookie,
-				      function (status) {
-					  tm_menu.label = T_(status);
-					  if( status != 'error' )
-					  {
-					      if (status == 'notmoderated')
-					      {
-						  tm_ignore.hidden = false;
-						  tm_deny.hidden = false;
-						  tm_publish.hidden = false;
-						  tm_transmit.hidden = false;
-						  tm_cancel.hidden = true;
-					      }
-					      else
-					      {
-						  tm_ignore.hidden = true;
-						  tm_deny.hidden = true;
-						  tm_publish.hidden = true;
-						  tm_transmit.hidden = true;
-						  tm_cancel.hidden = false;
-					      }
-					      tm_menu.type = 'menu-button';
-					  }
-				      } );
+	    WebmodoAPI.getMailStatus( cookie, function (status, moderator) {
+		tm_menu.label = T_(status);
+		if( status != 'error' )
+		{
+		    if (status == 'notmoderated')
+		    {
+			tm_menu.description = '';
+			tm_ignore.hidden = false;
+			tm_deny.hidden = false;
+			tm_publish.hidden = false;
+			tm_transmit.hidden = false;
+			tm_cancel.hidden = true;
+		    }
+		    else
+		    {
+			if( nsPreferences.getBoolPref('thundermoderate.moderator.showinbutton', false) )
+			    tm_menu.label += ' (' + moderator + ')';
+			tm_menu.description = T_('moderatedby') + moderator;
+			tm_ignore.hidden = true;
+			tm_deny.hidden = true;
+			tm_publish.hidden = true;
+			tm_transmit.hidden = true;
+			tm_cancel.hidden = false;
+		    }
+		    tm_menu.type = 'menu-button';
+		}
+	    } );
         }
     },
-
+    
     set_status: function( status )
     {
 	if( MessengerOverlay.cookie )
@@ -114,32 +117,32 @@ var MessengerOverlay = {
 				      status ,
 				      function (x) { MessengerOverlay.update(); } );
     },
-
+    
     ignore: function()
     {
 	MessengerOverlay.set_status( 'ignored' );
     },
-
+    
     deny: function()
     {
 	MessengerOverlay.set_status( 'denied' );
     },
-
+    
     publish: function()
     {
 	MessengerOverlay.set_status( 'published' );
     },
-
+    
     transmit: function()
     {
 	MessengerOverlay.set_status( 'transmitted' );
     },
-
+    
     cancel: function()
     {
 	MessengerOverlay.set_status( 'notmoderated' );
     }
-
+    
 };
 
 window.addEventListener("load",

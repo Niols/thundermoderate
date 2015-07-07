@@ -13,5 +13,8 @@
 <!ENTITY thundermoderate.settings.presentation.title "Présentation">
 <!ENTITY thundermoderate.settings.presentation "ThunderModerate est une super appli !">
 
+<!ENTITY thundermoderate.settings.moderator "Moderateur">
+<!ENTITY thundermoderate.settings.moderator.show-in-button "Afficher le nom du modérateur dans le bouton">
+
 <!ENTITY thundermoderate.settings.token "Jeton d'API">
 <!ENTITY thundermoderate.settings.token.explanation "L'application a besoin de votre jeton d'API pour fonctionner.">

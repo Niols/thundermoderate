@@ -13,5 +13,8 @@
 <!ENTITY thundermoderate.settings.presentation.title "Presentation">
 <!ENTITY thundermoderate.settings.presentation "ThunderModerate is a great add-on!">
 
+<!ENTITY thundermoderate.settings.moderator "Moderator">
+<!ENTITY thundermoderate.settings.moderator.show-in-button "Show moderator name in moderation button">
+
 <!ENTITY thundermoderate.settings.token "Token">
 <!ENTITY thundermoderate.settings.token.explanation "This add-on needs your Webmodo API token.">

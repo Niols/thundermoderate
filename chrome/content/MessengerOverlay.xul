@@ -19,11 +19,12 @@
   </stringbundleset>
   
   <toolbarpalette id="header-view-toolbar">
-    
-    <toolbarbutton label="&thundermoderate.loading;"
-		   id="thundermoderate-toolbar-menu"
-		   hidden="true"
-		   oncommand="MessengerOverlay.update()">
+
+    <button label="&thundermoderate.loading;"
+	    id="thundermoderate-toolbar-menu"
+	    hidden="true"
+	    oncommand="MessengerOverlay.update()">
+
       <menupopup>
 	
 	<menuitem label="&thundermoderate.ignore;"
@@ -52,7 +53,7 @@
 		  oncommand="MessengerOverlay.cancel();" />
 	
       </menupopup>
-    </toolbarbutton>
+    </button>
     
   </toolbarpalette>
   
