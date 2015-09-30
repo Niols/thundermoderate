@@ -106,9 +106,10 @@ var MessengerOverlay = {
 			tm_deny.hidden = true;
 			tm_publish.hidden = true;
 			tm_transmit.hidden = true;
-			tm_cancel.hidden = false;
+			tm_cancel.hidden = (status == 'transmitted');
 		    }
-		    tm_menu.type = 'menu-button';
+		    if (status != 'transmitted')
+			tm_menu.type = 'menu-button';
 		}
 	    } );
         }
