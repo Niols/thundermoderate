@@ -9,23 +9,28 @@ function T_( text )
     return strbundle.getString( text );
 }
 
+function show_btn ( btn ) { btn.hidden = false; }
+function hide_btn ( btn ) { btn.hidden = true;  }
+
 var MessengerOverlay = {
 
     cookie : false,
 
     onLoad: function()
     {
-        Components.utils.import("resource://gre/modules/FileUtils.jsm");
+        Components.utils.import('resource://gre/modules/FileUtils.jsm');
 
-        var messagepane = document.getElementById("messagepane");
+        var messagepane = document.getElementById('messagepane');
         if(messagepane)
-            messagepane.addEventListener("load",
-					 MessengerOverlay.update,
-					 true);
+            messagepane.addEventListener(
+		'load',
+		MessengerOverlay.update,
+		true);
 
-        window.addEventListener("activate",
-				MessengerOverlay.update,
-				true);
+        window.addEventListener(
+	    'activate',
+	    MessengerOverlay.update,
+	    true);
 
         this.initialized = true;
     },
@@ -39,14 +44,15 @@ var MessengerOverlay = {
         if(!msg)
             return;
 
-        var tm_menu     = document.getElementById('thundermoderate-toolbar-menu');
-	var tm_ignore   = document.getElementById('thundermoderate-toolbar-ignore');
-	var tm_deny     = document.getElementById('thundermoderate-toolbar-deny');
-	var tm_publish  = document.getElementById('thundermoderate-toolbar-publish');
-	var tm_transmit = document.getElementById('thundermoderate-toolbar-transmit');
-	var tm_cancel   = document.getElementById('thundermoderate-toolbar-cancel');
+        var btn_loading      = document.getElementById('thundermoderate-toolbar-loading'     );
+        var btn_error        = document.getElementById('thundermoderate-toolbar-error'       );
+	var btn_ignored      = document.getElementById('thundermoderate-toolbar-ignored'     );
+	var btn_denied       = document.getElementById('thundermoderate-toolbar-denied'      );
+	var btn_published    = document.getElementById('thundermoderate-toolbar-published'   );
+	var btn_transmitted  = document.getElementById('thundermoderate-toolbar-transmitted' );
+	var btn_notmoderated = document.getElementById('thundermoderate-toolbar-notmoderated');
 
-        if( (!tm_menu) || (!tm_ignore) || (!tm_deny) || (!tm_publish) || (!tm_transmit) || (!tm_cancel) )
+        if( (! btn_loading) || (! btn_error) || (! btn_ignored) || (! btn_denied) || (! btn_published) || (! btn_transmitted) || (! btn_notmoderated))
             return;
 
         var subject = msg.mime2DecodedSubject;
@@ -55,13 +61,13 @@ var MessengerOverlay = {
 
         if(!matches)
         {
-	    tm_menu.hidden = true;
-	    tm_menu.type = '';
-	    tm_ignore.hidden = true;
-	    tm_deny.hidden = true;
-	    tm_publish.hidden = true;
-	    tm_transmit.hidden = true;
-	    tm_cancel.hidden = true;
+	    hide_btn( btn_loading      );
+	    hide_btn( btn_error        );
+	    hide_btn( btn_ignored      );
+	    hide_btn( btn_denied       );
+	    hide_btn( btn_published    );
+	    hide_btn( btn_transmitted  );
+	    hide_btn( btn_notmoderated );
 
             MessengerOverlay.cookie = false;
         }
@@ -69,47 +75,54 @@ var MessengerOverlay = {
         {
 	    cookie = matches[1];
 
-	    tm_menu.label = T_('loading');
-	    tm_menu.type = '';
-	    tm_ignore.hidden = true;
-	    tm_deny.hidden = true;
-	    tm_publish.hidden = true;
-	    tm_transmit.hidden = true;
-	    tm_cancel.hidden = true;
-	    tm_menu.hidden = false;
+	    show_btn( btn_loading      );
+
+	    hide_btn( btn_error        );
+	    hide_btn( btn_ignored      );
+	    hide_btn( btn_denied       );
+	    hide_btn( btn_published    );
+	    hide_btn( btn_transmitted  );
+	    hide_btn( btn_notmoderated );
 
             MessengerOverlay.cookie = cookie;
 
 	    WebmodoAPI.getMailStatus( cookie, function (status, moderator) {
-		tm_menu.label = T_(status);
-		if( status == 'error' )
+
+		hide_btn( btn_loading );
+
+		if ( status == 'error' )
 		{
-		    tm_menu.tooltipText = '';
+		    show_btn( btn_error );
+		}
+		else if ( status == 'notmoderated' )
+		{
+		    show_btn( btn_notmoderated );
 		}
 		else
 		{
-		    if (status == 'notmoderated')
+		    tooltipText = T_('moderatedby') + ' ' + moderator;
+		    switch (status)
 		    {
-			tm_menu.tooltiptext = '';
-			tm_ignore.hidden = false;
-			tm_deny.hidden = false;
-			tm_publish.hidden = false;
-			tm_transmit.hidden = false;
-			tm_cancel.hidden = true;
+			case 'ignored':
+			show_btn( btn_ignored     );
+			btn_ignored.tooltipText     = tooltipText;
+			break;
+
+			case 'published':
+			show_btn( btn_published   );
+			btn_published.tooltipText   = tooltipText;
+			break;
+
+			case 'denied':
+			show_btn( btn_denied      );
+			btn_denied.tooltipText      = tooltipText;
+			break;
+
+			case 'transmitted':
+			show_btn( btn_transmitted );
+			btn_transmitted.tooltipText = tooltipText;
+			break;
 		    }
-		    else
-		    {
-			if( nsPreferences.getBoolPref('thundermoderate.moderator.showinbutton', false) )
-			    tm_menu.label += ' (' + moderator + ')';
-			tm_menu.tooltipText = T_('moderatedby') + ' ' + moderator;
-			tm_ignore.hidden = true;
-			tm_deny.hidden = true;
-			tm_publish.hidden = true;
-			tm_transmit.hidden = true;
-			tm_cancel.hidden = (status == 'transmitted');
-		    }
-		    if (status != 'transmitted')
-			tm_menu.type = 'menu-button';
 		}
 	    } );
         }
@@ -118,9 +131,10 @@ var MessengerOverlay = {
     set_status: function( status )
     {
 	if( MessengerOverlay.cookie )
-	    WebmodoAPI.setMailStatus( MessengerOverlay.cookie ,
-				      status ,
-				      function (x) { MessengerOverlay.update(); } );
+	    WebmodoAPI.setMailStatus(
+		MessengerOverlay.cookie ,
+		status ,
+		function (x) { MessengerOverlay.update(); } );
     },
 
     ignore: function()
@@ -150,6 +164,7 @@ var MessengerOverlay = {
 
 };
 
-window.addEventListener("load",
-			function(e) { MessengerOverlay.onLoad(e); },
-			false);
+window.addEventListener(
+    'load',
+    function(e) { MessengerOverlay.onLoad(e); },
+    false);

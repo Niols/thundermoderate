@@ -1,5 +1,6 @@
 content	thundermoderate		chrome/content/
-locale	thundermoderate	en	chrome/locale/en/
+
 locale	thundermoderate	fr	chrome/locale/fr/
+locale	thundermoderate	en	chrome/locale/en/
 
 overlay chrome://messenger/content/messenger.xul chrome://thundermoderate/content/MessengerOverlay.xul

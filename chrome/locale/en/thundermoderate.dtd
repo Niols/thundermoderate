@@ -1,20 +1,30 @@
 <!ENTITY thundermoderate "ThunderModerate">
 
-<!ENTITY thundermoderate.loading "Loading…">
+<!ENTITY thundermoderate.loading      "Loading...">
+<!ENTITY thundermoderate.cancel       "Cancel">
+<!ENTITY thundermoderate.notmoderated "Not moderated">
+<!ENTITY thundermoderate.error        "Error">
 
-<!ENTITY thundermoderate.ignore "Ignore">
-<!ENTITY thundermoderate.deny "Deny">
-<!ENTITY thundermoderate.publish "Publish">
-<!ENTITY thundermoderate.transmit "Transmit">
-<!ENTITY thundermoderate.cancel "Cancel">
+<!ENTITY thundermoderate.ignore       "Ignore">
+<!ENTITY thundermoderate.ignored      "Ignored">
+
+<!ENTITY thundermoderate.deny         "Deny">
+<!ENTITY thundermoderate.denied       "Denied">
+
+<!ENTITY thundermoderate.publish      "Publish">
+<!ENTITY thundermoderate.published    "Published">
+
+<!ENTITY thundermoderate.transmit     "Transmit">
+<!ENTITY thundermoderate.transmitted  "Transmitted">
+
 
 <!ENTITY thundermoderate.settings.title "Preferences for ThunderModerate">
 
 <!ENTITY thundermoderate.settings.presentation.title "Presentation">
-<!ENTITY thundermoderate.settings.presentation "ThunderModerate is a great add-on!">
+<!ENTITY thundermoderate.settings.presentation "ThunderModerate is a great app!">
 
 <!ENTITY thundermoderate.settings.moderator "Moderator">
-<!ENTITY thundermoderate.settings.moderator.show-in-button "Show moderator name in moderation button">
+<!ENTITY thundermoderate.settings.moderator.show-in-button "Show moderator's name in the button">
 
-<!ENTITY thundermoderate.settings.token "Token">
-<!ENTITY thundermoderate.settings.token.explanation "This add-on needs your Webmodo API token.">
+<!ENTITY thundermoderate.settings.token "API token">
+<!ENTITY thundermoderate.settings.token.explanation "This app needs your API token in order to work properly.">

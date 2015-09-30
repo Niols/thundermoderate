@@ -1,0 +1,27 @@
+.hdrThundermoderateLoading {
+    list-style-image: url('chrome://messenger/skin/icons/connecting.png');
+}
+
+.hdrThundermoderateTransmitted {
+    list-style-image: url('chrome://messenger/skin/icons/mail-toolbar.png');
+    -moz-image-region: rect(0px, 108px, 18px, 90px);
+}
+
+.hdrThundermoderatePublished {
+    list-style-image: url("chrome://messenger/skin/icons/mail-toolbar.png");
+    -moz-image-region: rect(0px, 360px, 18px, 342px);
+}
+
+.hdrThundermoderateIgnored {
+    list-style-image: url("chrome://messenger/skin/icons/mail-toolbar.png");
+    -moz-image-region: rect(0px, 162px, 18px, 144px);
+}
+
+.hdrThundermoderateDenied {
+    list-style-image: url("chrome://messenger/skin/icons/mail-toolbar.png");
+    -moz-image-region: rect(0px, 144px, 18px, 126px);
+}
+
+.hdrThundermoderateError {
+    list-style-image: url('chrome://messenger/skin/icons/error.png');
+}

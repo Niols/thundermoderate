@@ -1,9 +1,9 @@
-<?xml version="1.0"?> 
+<?xml version="1.0"?>
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 
 <!DOCTYPE dialog SYSTEM "chrome://thundermoderate/locale/thundermoderate.dtd">
 
-<dialog 
+<dialog
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
     title="&thundermoderate.settings.title;"
     id="thundermoderate-settings"
@@ -12,13 +12,13 @@
 
   <script type="application/javascript"
 	  src="chrome://global/content/nsUserSettings.js"/>
-  
+
   <script type="application/javascript"
 	  src="chrome://thundermoderate/content/WebmodoAPI.js" />
-  
+
   <script type="application/javascript"
 	  src="chrome://thundermoderate/content/Settings.js" />
-  
+
   <groupbox>
     <caption label="&thundermoderate.settings.presentation.title;" />
 
@@ -28,23 +28,27 @@
       </description>
       <spacer flex="1"/>
     </hbox>
-    
+
   </groupbox>
 
-  <groupbox>
-    <caption label="&thundermoderate.settings.moderator;" />
+  <!--
+      This function has been disabled for now.
 
-    <vbox align="stretch">
+      <groupbox>
+      <caption label="&thundermoderate.settings.moderator;" />
+
+      <vbox align="stretch">
       <hbox align="center">
-	<checkbox label="&thundermoderate.settings.moderator.show-in-button;"
-		  id="thundermoderate-settings-moderator-showinbutton" />
+      <checkbox label="&thundermoderate.settings.moderator.show-in-button;"
+      id="thundermoderate-settings-moderator-showinbutton" />
       </hbox>
-    </vbox>
-  </groupbox>
+      </vbox>
+      </groupbox>
+  -->
 
   <groupbox>
     <caption label="&thundermoderate.settings.token;" />
-    
+
     <vbox align="stretch">
 
       <hbox align="center">
