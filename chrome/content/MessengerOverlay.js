@@ -10,26 +10,26 @@ function T_( text )
 }
 
 var MessengerOverlay = {
-    
+
     cookie : false,
-    
+
     onLoad: function()
     {
         Components.utils.import("resource://gre/modules/FileUtils.jsm");
-	
+
         var messagepane = document.getElementById("messagepane");
         if(messagepane)
             messagepane.addEventListener("load",
 					 MessengerOverlay.update,
 					 true);
-	
+
         window.addEventListener("activate",
 				MessengerOverlay.update,
 				true);
-	
+
         this.initialized = true;
     },
-    
+
     update: function()
     {
         if(!gFolderDisplay)
@@ -52,7 +52,7 @@ var MessengerOverlay = {
         var subject = msg.mime2DecodedSubject;
         var re = /moderate ([0-9A-F]{8}) \(([a-z0-9]*)\)/g;
         matches = re.exec(subject);
-	
+
         if(!matches)
         {
 	    tm_menu.hidden = true;
@@ -82,7 +82,11 @@ var MessengerOverlay = {
 
 	    WebmodoAPI.getMailStatus( cookie, function (status, moderator) {
 		tm_menu.label = T_(status);
-		if( status != 'error' )
+		if( status == 'error' )
+		{
+		    tm_menu.tooltipText = '';
+		}
+		else
 		{
 		    if (status == 'notmoderated')
 		    {
@@ -109,7 +113,7 @@ var MessengerOverlay = {
 	    } );
         }
     },
-    
+
     set_status: function( status )
     {
 	if( MessengerOverlay.cookie )
@@ -117,32 +121,32 @@ var MessengerOverlay = {
 				      status ,
 				      function (x) { MessengerOverlay.update(); } );
     },
-    
+
     ignore: function()
     {
 	MessengerOverlay.set_status( 'ignored' );
     },
-    
+
     deny: function()
     {
 	MessengerOverlay.set_status( 'denied' );
     },
-    
+
     publish: function()
     {
 	MessengerOverlay.set_status( 'published' );
     },
-    
+
     transmit: function()
     {
 	MessengerOverlay.set_status( 'transmitted' );
     },
-    
+
     cancel: function()
     {
 	MessengerOverlay.set_status( 'notmoderated' );
     }
-    
+
 };
 
 window.addEventListener("load",
