@@ -73,7 +73,7 @@
     <!-- Button for ignored mail. -->
     <toolbarbutton
 	label="&thundermoderate.ignored;"
-	class="toolbarbutton-1 msgHeaderView-button hdrThundermoderateIgnored"
+	class="toolbarbutton-1 msgHeaderView-button hdrJunkButton"
 	id="thundermoderate-toolbar-ignored"
 	type="menu"
 	hidden="true">
@@ -87,7 +87,7 @@
     <!-- Button for denied mail. -->
     <toolbarbutton
 	label="&thundermoderate.denied;"
-	class="toolbarbutton-1 msgHeaderView-button hdrThundermoderateDenied"
+	class="toolbarbutton-1 msgHeaderView-button hdrTrashButton"
 	id="thundermoderate-toolbar-denied"
 	type="menu"
 	hidden="true">
@@ -101,7 +101,7 @@
     <!-- Button for published mail. -->
     <toolbarbutton
 	label="&thundermoderate.published;"
-	class="toolbarbutton-1 msgHeaderView-button hdrThundermoderatePublished"
+	class="toolbarbutton-1 msgHeaderView-button hdrArchiveButton"
 	id="thundermoderate-toolbar-published"
 	type="menu"
 	hidden="true">
@@ -115,7 +115,7 @@
     <!-- Button for transmitted mail. -->
     <toolbarbutton
 	label="&thundermoderate.transmitted;"
-	class="toolbarbutton-1 msgHeaderView-button hdrThundermoderateTransmitted"
+	class="toolbarbutton-1 msgHeaderView-button hdrForwardButton"
 	id="thundermoderate-toolbar-transmitted"
 	hidden="true"
 	/>
